@@ -22,10 +22,8 @@ kind: AnalysisTemplate
 metadata:
   name: external-check
 spec:
-  args:
-  - name: host
   metrics:
-  - name: webmetric
+  - name: external-check
     successCondition: "result.ok"
     provider:
       web:
