@@ -15,12 +15,12 @@ spec:
       app: {{ template "helm-guestbook.name" . }}
       release: {{ .Release.Name }}
   strategy:
-    blueGreen:
-      activeService: {{ template "helm-guestbook.fullname" . }}
-      previewService: {{ template "helm-guestbook.fullname" . }}-preview
-      prePromotionAnalysis:
-        templates:
-        - templateName: api-test
+    #blueGreen:
+    #  activeService: {{ template "helm-guestbook.fullname" . }}
+    #  previewService: {{ template "helm-guestbook.fullname" . }}-preview
+    #  prePromotionAnalysis:
+    #    templates:
+    #    - templateName: api-test
     canary: #Indicates that the rollout should use the Canary strategy
       maxSurge: "25%"
       maxUnavailable: 0
