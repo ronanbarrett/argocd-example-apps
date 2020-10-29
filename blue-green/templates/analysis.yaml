@@ -14,5 +14,5 @@ spec:
               containers:
               - name: smoke-test
                 image: alpine:latest
-                command: ["exit",  "0"]
+                command: ["sh", "-c", "exit",  "0"]
               restartPolicy: Never
