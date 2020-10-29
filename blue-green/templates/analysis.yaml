@@ -27,7 +27,6 @@ spec:
   metrics:
   - name: webmetric
     failureLimit: 1
-    interval: 5
     successCondition: result == "GET"
     provider:
       web:
