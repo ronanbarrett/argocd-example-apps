@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: api-test
+spec:
+metrics:
+    - name: test
+      provider:
+        job:
+          spec:
+            backoffLimit: 1
+            template:
+              spec:
+                containers:
+                - name: hello-world
+                  image: hello-world:latest
+                  #command: [my-test-script, my-service.default.svc.cluster.local]
+                restartPolicy: Never
