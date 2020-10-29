@@ -27,4 +27,4 @@ spec:
     successCondition: "result.ok"
     provider:
       web:
-        url: "https://httpbin.org/status/200"
+        url: "https://httpbin.org/anything"
