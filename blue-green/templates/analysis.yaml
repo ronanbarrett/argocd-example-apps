@@ -31,5 +31,5 @@ spec:
     successCondition: result == "GET"
     provider:
       web:
-        url: "ttps://httpbin.org/anything"
+        url: "https://httpbin.org/anything"
         jsonPath: "{$.method}"
