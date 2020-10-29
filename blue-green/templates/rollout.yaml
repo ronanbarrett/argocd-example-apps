@@ -24,7 +24,7 @@ spec:
     canary: #Indicates that the rollout should use the Canary strategy
       analysis:
         templates:
-        - templateName: webmetric
+        - templateName: external-check
       maxSurge: "25%"
       maxUnavailable: 0
       steps:

@@ -20,15 +20,13 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
 metadata:
-  name: webmetric
+  name: external-check
 spec:
   args:
   - name: host
   metrics:
   - name: webmetric
-    failureLimit: 1
-    successCondition: result == "GET"
+    successCondition: "result.ok"
     provider:
       web:
-        url: "https://httpbin.org/anything"
-        jsonPath: "{$.method}"
+        url: "https://httpbin.org/status/200"
