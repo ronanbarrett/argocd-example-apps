@@ -24,7 +24,8 @@ metadata:
 spec:
   metrics:
   - name: external-check
-    successCondition: "result.ok"
+    successCondition: result == "GET"
     provider:
       web:
         url: "https://httpbin.org/anything"
+        jsonPath: "{$.method}"
