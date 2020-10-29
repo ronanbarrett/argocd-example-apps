@@ -13,5 +13,6 @@ spec:
             spec:
               containers:
               - name: hello-world
-                image: hello-world:latest
+                image: alpine:latest
+                command: ["exit",  "-1"]
               restartPolicy: Never
