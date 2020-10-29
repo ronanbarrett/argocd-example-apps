@@ -18,7 +18,12 @@ spec:
     blueGreen:
       activeService: {{ template "helm-guestbook.fullname" . }}
       previewService: {{ template "helm-guestbook.fullname" . }}-preview
-      autoPromotionEnabled: false
+      prePromotionAnalysis:
+        templates:
+        - templateName: smoke-tests
+        args:
+        - name: service-name
+          value: {{ template "helm-guestbook.fullname" . }}-preview.default.svc.cluster.local
   template:
     metadata:
       labels:
