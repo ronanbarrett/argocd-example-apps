@@ -16,3 +16,20 @@ spec:
                 image: alpine:latest
                 command: ["sh", "-c", "exit",  "0"]
               restartPolicy: Never
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: webmetric
+spec:
+  args:
+  - name: host
+  metrics:
+  - name: webmetric
+    failureLimit: 1
+    interval: 5
+    successCondition: result == "GET"
+    provider:
+      web:
+        url: "ttps://httpbin.org/anything"
+        jsonPath: "{$.method}"

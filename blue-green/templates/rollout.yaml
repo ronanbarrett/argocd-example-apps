@@ -22,6 +22,9 @@ spec:
     #    templates:
     #    - templateName: api-test
     canary: #Indicates that the rollout should use the Canary strategy
+      analysis:
+        templates:
+        - templateName: webmetric
       maxSurge: "25%"
       maxUnavailable: 0
       steps:
