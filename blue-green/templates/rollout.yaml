@@ -21,6 +21,14 @@ spec:
       prePromotionAnalysis:
         templates:
         - templateName: api-test
+    canary: #Indicates that the rollout should use the Canary strategy
+      maxSurge: "25%"
+      maxUnavailable: 0
+      steps:
+      - setWeight: 10
+      - pause:
+          duration: 1m # 1 hour
+      - setWeight: 90
   template:
     metadata:
       labels:
