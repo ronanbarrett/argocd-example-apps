@@ -14,18 +14,5 @@ spec:
               containers:
               - name: smoke-test
                 image: alpine:latest
-                command: ["sh", "-c", "exit",  "0"]
+                command: ["sh", "-c", "exit",  "0"] #this would be an api-test in the real world
               restartPolicy: Never
----
-apiVersion: argoproj.io/v1alpha1
-kind: AnalysisTemplate
-metadata:
-  name: external-check
-spec:
-  metrics:
-  - name: external-check
-    successCondition: result == "GET"
-    provider:
-      web:
-        url: "https://httpbin.org/anything"
-        jsonPath: "{$.method}"
