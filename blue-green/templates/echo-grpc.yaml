@@ -45,10 +45,6 @@ metadata:
   name: echoheaders-ingress
   namespace: default
 spec:
-  rules:
-  - host: fortune-teller.stack.build
-    http:
-      paths:
-      - backend:
-          serviceName: echoheaders
-          servicePort: grpc
+  backend:
+    serviceName: echoheaders
+    servicePort: grpc
